@@ -1,0 +1,301 @@
+<!DOCTYPE html>  <html lang="es">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Organización Interna del Informativo</title>  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">    <style>  
+        
+    body {  
+      font-family: "Poppins", Arial, sans-serif;  
+      background: linear-gradient(180deg, #f9f9f9 0%, #e6eefc 100%);  
+      margin: 0;  
+      color: #222;  
+      line-height: 1.6;  
+      overflow-x: hidden;  
+      scroll-behavior: smooth;  
+    }  
+  
+    /* ===== Pantalla de carga ===== */  
+    #intro {  
+      position: fixed;  
+      inset: 0;  
+      background: linear-gradient(135deg, #0077ff, #0044cc);  
+      display: flex;  
+      flex-direction: column;  
+      align-items: center;  
+      justify-content: center;  
+      color: white;  
+      font-size: 1.5rem;  
+      z-index: 9999;  
+      animation: fadeOut 1.5s ease forwards;  
+      animation-delay: 2.5s;  
+    }  
+  
+    #intro h1 {  
+      font-size: 2.5rem;  
+      margin: 0;  
+      animation: pop 1s ease;  
+    }  
+  
+    #intro p {  
+      margin-top: 10px;  
+      opacity: 0.8;  
+    }  
+  
+    @keyframes pop {  
+      0% { transform: scale(0.8); opacity: 0; }  
+      100% { transform: scale(1); opacity: 1; }  
+    }  
+  
+    @keyframes fadeOut {  
+      to { opacity: 0; visibility: hidden; }  
+    }  
+  
+    /* ===== Contenido principal ===== */  
+    header {  
+      background: linear-gradient(135deg, #0077ff, #0044cc);  
+      color: white;  
+      text-align: center;  
+      padding: 60px 20px 40px;  
+      border-bottom-left-radius: 50% 20%;  
+      border-bottom-right-radius: 50% 20%;  
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);  
+    }  
+  
+    header h1 {  
+      font-size: 2.6rem;  
+      margin-bottom: 10px;  
+      letter-spacing: 1px;  
+      opacity: 0;  
+      animation: fadeIn 1s ease forwards;  
+      animation-delay: 2.7s;  
+    }  
+  
+    header p {  
+      font-size: 1.1rem;  
+      opacity: 0;  
+      animation: fadeIn 1s ease forwards;  
+      animation-delay: 3s;  
+    }  
+  
+    @keyframes fadeIn {  
+      to { opacity: 1; }  
+    }  
+  
+    main {  
+      max-width: 900px;  
+      margin: 40px auto;  
+      background: white;  
+      padding: 40px;  
+      border-radius: 20px;  
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);  
+      opacity: 0;  
+      transform: translateY(30px);  
+      animation: slideIn 1s ease forwards;  
+      animation-delay: 3.2s;  
+    }  
+  
+    @keyframes slideIn {  
+      to { opacity: 1; transform: translateY(0); }  
+    }  
+  
+    img {  
+      width: 100%;  
+      max-width: 400px;  
+      height: auto;  
+      border-radius: 12px;  
+      display: block;  
+      margin: 0 auto 25px;  
+      transition: transform 0.3s, box-shadow 0.3s;  
+    }  
+  
+    img:hover {  
+      transform: scale(1.05);  
+      box-shadow: 0 0 20px rgba(0,0,0,0.15);  
+    }  
+  
+    h2 {  
+      color: #0077ff;  
+      border-left: 5px solid #0077ff;  
+      padding-left: 10px;  
+      margin-bottom: 15px;  
+      transition: 0.3s;  
+    }  
+  
+    h2:hover { color: #005ce6; transform: translateX(5px); }  
+  
+    blockquote {  
+      background: #f0f6ff;  
+      border-left: 4px solid #0077ff;  
+      padding: 15px 20px;  
+      font-style: italic;  
+      margin: 20px 0;  
+      border-radius: 8px;  
+    }  
+  
+    .quote {  
+      display: block;  
+      margin-top: 10px;  
+      font-weight: 600;  
+      color: #444;  
+      font-style: italic;  
+    }  
+  
+    .audio-box {  
+      background: #f4f8ff;  
+      padding: 25px;  
+      border-radius: 15px;  
+      border: 1px solid #cdddfb;  
+      text-align: center;  
+      margin: 30px 0;  
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);  
+    }  
+  
+    .audio-box strong {  
+      display: block;  
+      font-size: 1.1rem;  
+      margin-bottom: 10px;  
+    }  
+  
+    audio {  
+      width: 100%;  
+      max-width: 600px;  
+      outline: none;  
+      border-radius: 8px;  
+    }  
+  
+    .team {  
+      background: #f4f8ff;  
+      padding: 20px;  
+      border-radius: 15px;  
+      border: 1px solid #cdddfb;  
+    }  
+  
+    .team p {  
+      margin: 5px 0;  
+      font-weight: 500;  
+    }  
+  
+    .info {  
+      font-size: 0.95rem;  
+      color: #444;  
+      background: #f9f9f9;  
+      padding: 10px 15px;  
+      border-radius: 10px;  
+      border: 1px solid #ddd;  
+    }  
+  
+    footer {  
+      background: #111;  
+      color: #eee;  
+      text-align: center;  
+      padding: 30px;  
+      font-size: 0.9rem;  
+      margin-top: 50px;  
+    }  
+  
+    footer a {  
+      color: #80bfff;  
+      text-decoration: none;  
+    }  
+  
+    footer a:hover { text-decoration: underline; }  
+  
+    @media (max-width: 600px) {  
+      header h1 { font-size: 2rem; }  
+      main { padding: 25px; }  
+    }  
+  
+    /* Estilo para la entrevista extendida */  
+    .dialogo {  
+      background: #f8faff;  
+      border-left: 4px solid #0077ff;  
+      padding: 20px;  
+      border-radius: 10px;  
+      line-height: 1.7;  
+      margin-top: 25px;  
+    }  
+  
+    .dialogo p {  
+      margin: 10px 0;  
+    }  
+  
+    .extra-info {  
+      background: #eaf2ff;  
+      border-left: 5px solid #005ce6;  
+      padding: 15px;  
+      border-radius: 10px;  
+      margin-top: 30px;  
+    }  
+  
+  </style>  </head>  
+<body>    <!-- Pantalla de presentación -->    <div id="intro">  
+    <h1>🎙️ Proyecto Radial Bicentenario</h1>  
+    <p>Lengua y literatura - 2025</p>  
+  </div>    <header>  
+    <h1>Organización Interna del Informativo</h1>  
+    <p><strong>Lengua y literatura - Exposición</strong><br>7 de octubre, 2025</p>  
+  </header>    <main>  
+    <img src="https://img.freepik.com/vector-premium/emblema-vector-estacion-radio-icono-radio-linea_8071-14188.jpg?semt=ais_hybrid&w=740&q=80" alt="radio">  <section>  
+  <p><strong>Estudiantes de último año de secundaria</strong> de la Escuela Secundaria Bicentenario lanzan un programa de radio como proyecto, dejando una huella en la institución.</p>  
+  <blockquote>  
+    “Este proyecto está hecho como manera de formalización profesional o inserción en el mundo laboral de una manera diferente, dejándonos mostrar nuestra creatividad, empeño y esfuerzo que aprendimos y experimentamos a lo largo de nuestra vida educativa.”    
+    <span class="quote">— Barrojo Molina Samuel</span>  
+  </blockquote>  
+</section>  
+
+<section>  
+  <h2>Necesidad Educativa del Proyecto Radial</h2>  
+  <p>Un programa de radio como proyecto educativo en el último año de secundaria es fundamental porque actúa como un puente práctico entre la teoría académica y las competencias del mundo real.</p>  
+  <p>La producción radial exige coordinación, liderazgo y trabajo en equipo, simulando un entorno profesional real. Este proyecto valida el conocimiento adquirido y ofrece experiencia multimedia valiosa.</p>  
+</section>  
+
+<section>  
+  <h2>Breve Reportaje a los Chicos de 6° “B”</h2>  
+
+  <!-- Nueva entrevista extendida -->  
+  <div class="dialogo">  
+    <p>— <strong>Entrevistador:</strong> Pregunta 1; ¿Cómo estás formado o planeado tu emisión de radio?</p>  
+    <p>— <strong>Entrevistado:</strong> Nuestra emisión de radio consta de un grupo selecto de personas, no mayor a 10 personas, que se encarga de transmitir a través de... Bueno, en realidad no transmitir, sino que hacemos una grabación y después retransmitimos el programa de radio.</p>  
+
+    <p>— <strong>Entrevistador:</strong> Pregunta 2; ¿Quiénes son los encargados de cada segmento?</p>  
+    <p>— <strong>Entrevistado:</strong> Tenemos distintos segmentos, entre ellos, como son varios encargados voy a nombrar un par nada más. Tenemos a Santino como productor principal, después tenemos también a un compañero a cargo de una sección deportiva, también José a cargo también de una sección deportiva, a cargo del clima tenemos a mi compañera Candela y en realidad tenemos varias personas a cargo de distintas secciones. En mi caso, me encargo de la sección de inteligencia artificial. En realidad, más que nada orientado a la tecnología, pero en este caso abarca una inteligencia artificial.</p>  
+
+    <p>— <strong>Entrevistador:</strong> Pregunta 3; ¿Tienen pensado abarcar más temas al hablar o algo más para charlar?</p>  
+    <p>— <strong>Entrevistado:</strong> Obviamente. Y a partir de las áreas que ya tenemos, queremos abarcar más temas. No en sí dispersarnos en muchos más ámbitos, porque como bien dice la frase, “quien mucho abarca, poco aprieta”. Entonces queremos mantenernos en nuestro mismo ámbito y en él ubicar más áreas y seguir trabajando dentro de ese enfoque.</p>  
+
+    <p>— <strong>Entrevistador:</strong> Pregunta 4; ¿Quién está pensado en invitar a su programa?</p>  
+    <p>— <strong>Entrevistado:</strong> Hasta ahora no hemos pensado invitar a nadie al programa, aunque viendo las condiciones y que si en sí el programa tiene repercusión, quizás nos convendría invitar a algún directivo o profesor. Sería interesante tener un pequeño segmento con ellos, aunque no lo tenemos planeado todavía. Pero ahora que lo plantea, suena a una buena idea.</p>  
+
+    <p>— <strong>Entrevistador:</strong> Bien, muchas gracias.</p>  
+  </div>  
+</section>  
+
+<div class="audio-box">  
+  <strong>🎧 Audio de la Entrevista</strong>
+
+<audio controls src="https://drive.google.com/uc?export=download&id=1UwTorAsWxvd61nzqIVE3JkkKKiSWAdI_"></audio>
+</div>
+
+<section class="extra-info">  
+  <h2>Importancia del Trabajo en Equipo</h2>  
+  <p>El proyecto radial no solo es una práctica de comunicación, sino también un espacio donde los estudiantes aprenden a trabajar en conjunto, a respetar los roles y tiempos de los demás y a asumir responsabilidades reales. Cada participante cumple una función esencial, desde la producción hasta la locución, fortaleciendo las habilidades sociales, la planificación y la toma de decisiones.</p>  
+</section>  
+
+<section class="team">  
+  <h2>Integrantes del Proyecto</h2>  
+  <p>🎙️ <strong>Barrojo Samuel</strong></p>  
+  <p>💻 <strong>Maná Joel Alejandro</strong></p>  
+</section>  
+
+<section>  
+  <h2>Ubicación</h2>  
+  <p class="info">San Miguel de Tucumán, Las Talitas, Argentina - Escuela Bicentenario</p>  
+</section>
+
+  </main>    <footer>  
+    <p>📧 <a href="mailto:yasmikermes245@gmail.com">yasmikermes245@gmail.com</a> | ☎️ 3815265547 — Prof. Kermes</p>  
+    <p>✉️ <a href="mailto:joelmana91@gmail.com">joelmana91@gmail.com</a> | ✉️ <a href="mailto:barrojosamuel@gmail.com">barroj@gmail.com</a></p>  
+    <p>© 2025 Proyecto Radial Bicentenario | Lengua y Literatura</p>  
+  </footer>  </body>  
+</html>
